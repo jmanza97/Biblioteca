@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreLoanRequest;
+use App\Http\Resources\LoanResource;
 use App\Models\Book;
 use App\Models\Loan;
 use Illuminate\Http\Request;
@@ -14,7 +15,9 @@ class LoanController extends Controller
      */
     public function index()
     {
-        //
+        $loans = Loan::with('book')->paginate();
+
+        return response()->json(LoanResource::collection($loans));
     }
 
     /**
