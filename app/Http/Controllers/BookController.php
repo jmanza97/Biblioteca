@@ -8,8 +8,11 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+    public function __construct() {}
+
     public function index(Request $request)
     {
+        $this->authorize('viewAny', Book::class);
         $books = Book::when($request->has('title'), function ($query) use ($request) {
             $query->where('title', 'like', '%'.$request->input('title').'%');
         })->when($request->has('isbn'), function ($query) use ($request) {
