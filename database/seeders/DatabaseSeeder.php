@@ -7,8 +7,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
-use function Symfony\Component\String\b;
-
 class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;

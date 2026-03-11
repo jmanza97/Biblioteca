@@ -12,7 +12,7 @@ class BookPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('view book');
     }
 
     /**
@@ -20,7 +20,7 @@ class BookPolicy
      */
     public function view(User $user, Book $book): bool
     {
-        return true;
+        return $user->hasPermissionTo('view book');
     }
 
     /**
@@ -28,7 +28,7 @@ class BookPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('create book');
     }
 
     /**
@@ -36,7 +36,7 @@ class BookPolicy
      */
     public function update(User $user, Book $book): bool
     {
-        return true;
+        return $user->hasPermissionTo('update book');
     }
 
     /**
@@ -44,7 +44,7 @@ class BookPolicy
      */
     public function delete(User $user, Book $book): bool
     {
-        return true;
+        return $user->hasPermissionTo('delete book');
     }
 
     /**
@@ -52,7 +52,7 @@ class BookPolicy
      */
     public function restore(User $user, Book $book): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -60,6 +60,6 @@ class BookPolicy
      */
     public function forceDelete(User $user, Book $book): bool
     {
-        return true;
+        return false;
     }
 }
